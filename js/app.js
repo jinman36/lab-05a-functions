@@ -31,9 +31,9 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
-  let multiply = a * b;
-  let message = `The product of ${a} and ${b} is ${multiply}.`;
-  return [multiply, message];
+  let product = a * b;
+  let message = `The product of ${a} and ${b} is ${product}.`;
+  return [product, message];
 }
 
 // Here is the test for multiply(); uncomment it to run it
@@ -54,14 +54,14 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-  let sumOne = sum(a, b)[0];
-  let sumTotal = sum(sumOne, c)[0];
+  // let sumOne = sum(a, b)[0];
+  let sumTotal = sum(sum(a, b)[0], c)[0];
   // console.log(sumOne);
   // console.log(sumTotal);
   let message1 = `${a} and ${b} and ${c} sum to ${sumTotal}.`;
 
-  let multiplyOne = multiply(a, b)[0];
-  let multiplyTotal = multiply(multiplyOne, c)[0];
+  // let multiplyOne = multiply(a, b)[0];
+  let multiplyTotal = multiply(multiply(a, b)[0], c)[0];
   let message2 = `The product of ${a} and ${b} and 5 is ${multiplyTotal}.`;
   // console.log(multiplyOne);
   // console.log(multiplyTotal);
@@ -124,7 +124,7 @@ Test this function by hand in the console to get it working, and when you think 
 
 function multiplyArray(multArr) { //eslint-disable-line
   let productTotal = 1;
-  for (var i = 0; i < multArr.length; i++) {
+  for (let i = 0; i < multArr.length; i++) {
     productTotal = multiply(productTotal, multArr[i])[0];
   }
   let messageMultArr = `The numbers ${testArray} have a product of ${productTotal}.`;
@@ -154,16 +154,15 @@ This function should be dynamic, accepting an array of any length.
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyAnyArray() function and see if the test passes.*/
 
 // // Write your code here
-let testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
+let testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
   let productTotalArray = 1;
-  for (var i = 0; i < dynamicArray.length; i++) {
-    productTotalArray = multiply(productTotalArray, dynamicArray[i])[0];
+  for (let i = 0; i < dynamicArray.length; i++) {
+    productTotalArray = multiply(productTotalArray, dynamicArray[i]);
   }
   let messageAnyArray = `The numbers ${testDynamicArray} have a product of ${productTotalArray}.`;
   // console.log(messageAnyArray);
-
   return [productTotalArray, messageAnyArray];
 }
 
